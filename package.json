@@ -1,0 +1,23 @@
+{
+  "name": "eliq-promise",
+  "version": "0.0.1",
+  "description": "A node.js module to interface with the ELIQ API promise style",
+  "main": "index.js",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ashpool/eliq-promise.git"
+  },
+  "keywords": [
+    "eliq",
+    "promises"
+  ],
+  "author": "Magnus Ljadas <magnus.ljadas@gmail.com> (https://github.com/ashpool)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ashpool/eliq-promise/issues"
+  },
+  "homepage": "https://github.com/ashpool/eliq-promise"
+}
