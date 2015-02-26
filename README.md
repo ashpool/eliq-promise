@@ -3,7 +3,7 @@ A node.js module to interface with the ELIQ API promise style.
 
 ```
 var config = {
-  "eliqAccesstoken": "...",
+  eliqAccesstoken: '...',
 },
 eliq = require('eliq-promise')(config);
 
