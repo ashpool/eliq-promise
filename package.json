@@ -2,7 +2,7 @@
   "name": "eliq-promise",
   "version": "0.0.1",
   "description": "A node.js module to interface with the ELIQ API promise style",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "test": "gulp test"
   },
