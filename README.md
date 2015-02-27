@@ -4,7 +4,7 @@
 A node.js module to interface with the [ELIQ API](http://eliq.se) [promise style](https://promisesaplus.com).
 
 ## Prerequisites
-Your personal [access token](https://my.eliq.se/user/settings/api)
+ELIQ [access token](https://my.eliq.se/user/settings/api)
 
 ## Install
 ``npm install eliq-promise``
