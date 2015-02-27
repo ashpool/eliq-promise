@@ -4,7 +4,7 @@
 A node.js module to interface with the [ELIQ API](http://eliq.se) [promise style](https://promisesaplus.com).
 
 ## Prerequisites
-Your personal access token: https://my.eliq.se/user/settings/api
+Your personal [access token](https://my.eliq.se/user/settings/api)
 
 ## Install
 ``npm install eliq-promise``
@@ -32,7 +32,8 @@ eliq.getToday().then(console.log);
        time_start: '2015-02-26T23:00:00',
        time_end: '2015-02-27T00:00:00' },
      ...
-     ] }
+   ]
+}
 ```
 
 ### This hour
@@ -49,7 +50,8 @@ eliq.getThisHour().then(console.log);
        time_start: '2015-02-27T18:00:00',
        time_end: '2015-02-27T18:06:00' },
      ...
-     ] }
+   ]
+}
 
 ```
 
