@@ -6,16 +6,19 @@ A node.js module to interface with the ELIQ API promise style.
 # Prerequisites
 Your personal access token: https://my.eliq.se/user/settings/api
 
-# Usage
+# Install
+``npm install eliq-promise``
+
+# API
 ```
 var config = {
   eliqAccesstoken: '...',
 },
 eliq = require('eliq-promise')(config);
 
-eliq.getToday().then(console.log);
+eliq.getToday().then(<do something>);
 
-eliq.getThisHour().then(console.log);
+eliq.getThisHour().then(<do something>);
 ```
 
 [npm-url]: https://npmjs.org/package/eliq-promise
