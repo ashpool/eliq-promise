@@ -37,7 +37,7 @@ eliq.getToday().then(console.log);
 
 ### This hour
 ```
-eliq.getThisHour().then(<do something>);
+eliq.getThisHour().then(console.log);
 =>
 { startdate: '2015-02-27T18:00:00+00:00',
   enddate: '2015-02-27T19:00:00+00:00',
