@@ -1,9 +1,7 @@
 # eliq-promise
-A node.js module to interface with the ELIQ API promise style.
-
 [![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url] [![Build Status][travis-image]][travis-url]
 
-
+A node.js module to interface with the ELIQ API promise style.
 
 ## Prerequisites
 Your personal access token: https://my.eliq.se/user/settings/api
