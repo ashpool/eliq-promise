@@ -9,6 +9,8 @@ var config = {
 eliq = require('eliq-promise')(config);
 
 eliq.getToday().then(console.log);
+
+eliq.getThisHour().then(console.log);
 ```
 
 [npm-url]: https://npmjs.org/package/eliq-promise
