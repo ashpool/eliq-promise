@@ -29,6 +29,7 @@
     "mocha": "^2.1.0"
   },
   "dependencies": {
+    "moment": "^2.9.0",
     "request": "^2.53.0",
     "rsvp": "^3.0.17"
   }
