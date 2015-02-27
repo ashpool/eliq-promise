@@ -2,6 +2,11 @@
 
 A node.js module to interface with the ELIQ API promise style.
 
+
+# Prerequisites
+Your personal access token: https://my.eliq.se/user/settings/api
+
+# Usage
 ```
 var config = {
   eliqAccesstoken: '...',
