@@ -27,13 +27,13 @@ describe('date', function () {
         });
     });
     describe('#hoursFromNow', function () {
-        var h = 60 * 60 * 1000,
-            now = roundTime(new Date());
-
         function roundTime (date) {
             var dateStr = '' + date.getTime();
             return parseInt(dateStr.substr(0, dateStr.length - 3) + '000');
         }
+
+        var h = 60 * 60 * 1000,
+            now = roundTime(new Date());
 
         it('substracts 0 hours', function () {
             expect(roundTime(date.hoursAgoFromNow(0))).to.equal(now);
