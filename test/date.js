@@ -26,4 +26,29 @@ describe('date', function () {
             expect(date.toISOHour(moment.tz('2012-11-04 17:30:15', 'Europe/Stockholm'))).to.equal('2012-11-04T16:00:00.000Z');
         });
     });
+    describe('#hoursFromNow', function () {
+        var h = 60 * 60 * 1000,
+            now = roundTime(new Date());
+
+        function roundTime (date) {
+            var dateStr = '' + date.getTime();
+            return parseInt(dateStr.substr(0, dateStr.length - 3) + '000');
+        }
+
+        it('substracts 0 hours', function () {
+            expect(roundTime(date.hoursAgoFromNow(0))).to.equal(now);
+        });
+        it('substracts 1 hour', function () {
+            expect(roundTime(date.hoursAgoFromNow(1))).to.equal(now - 1 * h);
+        });
+        it('substracts 23 hours', function () {
+            expect(roundTime(date.hoursAgoFromNow(23))).to.equal(now - 23 * h);
+        });
+        it('substracts 24 hours', function () {
+            expect(roundTime(date.hoursAgoFromNow(24))).to.equal(now - 24 * h);
+        });
+        it('substracts 25 hours', function () {
+            expect(roundTime(date.hoursAgoFromNow(25))).to.equal(now - 25 * h);
+        });
+    });
 });
