@@ -4,20 +4,23 @@ var moment = require('moment-timezone'),
     expect = chai.expect;
 
 describe('eliqurl', function () {
-    describe('#day', function () {
+    describe('#from', function () {
         it('reads config.eliqUrl and accessToken', function () {
             var config = {eliqUrl: 'https://eliq.url', eliqAccesstoken: 'xxxxx'},
                 eliqurl = require('./../lib/eliqurl')(config),
-                date = moment.tz('2012-11-04 17:30:15', 'GMT');
-            expect(eliqurl.day(date)).to.equal('https://eliq.url/?accesstoken=xxxxx&startdate=2012-11-04T00:00:00.000Z&intervaltype=hour');
+                startdate = moment.tz('2012-11-04 17:30:15', 'GMT');
+            expect(eliqurl.from(startdate, '6min')).to
+                .equal('https://eliq.url/?accesstoken=xxxxx&startdate=2012-11-04T00:00:00.000Z&intervaltype=6min');
         });
     });
-    describe('#hour', function () {
+    describe('#fromTo', function () {
         it('reads config.eliqUrl and accessToken', function () {
             var config = {eliqUrl: 'https://eliq.url', eliqAccesstoken: 'xxxxx'},
                 eliqurl = require('./../lib/eliqurl')(config),
-                date = moment.tz('2012-11-04 17:30:15', 'GMT');
-            expect(eliqurl.hour(date)).to.equal('https://eliq.url/?accesstoken=xxxxx&startdate=2012-11-04T17:00:00.000Z&intervaltype=6min');
+                startdate = moment.tz('2012-11-03 17:30:15', 'GMT'),
+                enddate = moment.tz('2012-11-04 17:30:15', 'GMT');
+            expect(eliqurl.fromTo(startdate, enddate, 'day')).to
+                .equal('https://eliq.url/?accesstoken=xxxxx&startdate=2012-11-03T00:00:00.000Z&enddate=2012-11-04T00:00:00.000Z&intervaltype=day');
         });
     });
 });

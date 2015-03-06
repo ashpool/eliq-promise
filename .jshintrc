@@ -16,7 +16,7 @@
   "indent": 4,
   "maxparams": 5,
   "maxdepth": 3,
-  "maxlen": 140,
+  "maxlen": 160,
   "node": true,
   "esnext": true
 }

@@ -4,7 +4,6 @@ var chai = require('chai'),
     date = require('../lib/date'),
     moment = require('moment-timezone');
 
-
 describe('date', function () {
     describe('#toISODay', function () {
         it('formats date into YYYY-MM-DDT00:00:00.000Z', function () {

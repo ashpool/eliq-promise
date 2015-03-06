@@ -19,51 +19,16 @@ var config = {
 eliq = require('eliq-promise')(config);
 ```
 
-### Today
-```
-eliq.getToday().then(console.log).catch(console.log);;
-=>
-{ startdate: '2015-02-26T23:00:00+00:00',
-  enddate: '2015-02-27T23:00:00+00:00',
-  intervaltype: 'hour',
-  data: 
-   [ { avgpower: 3230,
-       energy: 3229,
-       temp_out: null,
-       time_start: '2015-02-26T23:00:00',
-       time_end: '2015-02-27T00:00:00' },
-     ...
-   ]
-}
-```
-
-### This hour
-```
-eliq.getThisHour().then(console.log).catch(console.log);;
-=>
-{ startdate: '2015-02-27T18:00:00+00:00',
-  enddate: '2015-02-27T19:00:00+00:00',
-  intervaltype: '6min',
-  data: 
-   [ { avgpower: 3130,
-       energy: 313,
-       temp_out: null,
-       time_start: '2015-02-27T18:00:00',
-       time_end: '2015-02-27T18:06:00' },
-     ...
-   ]
-}
-
 ```
 
 ### From
 ```
-eliq.getFrom(<hours ago>, '6min' | 'hour').then(console.log).catch(console.log);
+eliq.getFrom(<hours ago>, '6min' | 'hour' | 'day').then(console.log).catch(console.log);
 ```
 
 ### From => To
 ```
-eliq.getFromTo (<startdate>, <enddate>, '6min' | 'hour').then(console.log).catch(console.log);
+eliq.getFromTo (<startdate>, <enddate>, '6min' | 'hour' | 'day').then(console.log).catch(console.log);
 ```
 
 [npm-url]: https://npmjs.org/package/eliq-promise
