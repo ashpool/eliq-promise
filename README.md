@@ -31,7 +31,7 @@ eliq.getFromTo (<startdate>, <enddate>, '6min' | 'hour' | 'day').then(console.lo
 
 ## Notes
 
-* It seems like the 6min resolution is limited to 1 hour.
+* It seems like the ``6min`` resolution is limited to 1 hour when just supplying ``startdate``.
 * ELIQ's uptime is not 99.9998%.
 
 [npm-url]: https://npmjs.org/package/eliq-promise
