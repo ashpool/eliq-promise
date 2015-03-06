@@ -10,7 +10,7 @@ describe('eliqurl', function () {
                 eliqurl = require('./../lib/eliqurl')(config),
                 startdate = moment.tz('2012-11-04 17:30:15', 'GMT');
             expect(eliqurl.from(startdate, '6min')).to
-                .equal('https://eliq.url/?accesstoken=xxxxx&startdate=2012-11-04T00:00:00.000Z&intervaltype=6min');
+                .equal('https://eliq.url/?accesstoken=xxxxx&startdate=2012-11-04T17:00:00.000Z&intervaltype=6min');
         });
     });
     describe('#fromTo', function () {
@@ -20,7 +20,7 @@ describe('eliqurl', function () {
                 startdate = moment.tz('2012-11-03 17:30:15', 'GMT'),
                 enddate = moment.tz('2012-11-04 17:30:15', 'GMT');
             expect(eliqurl.fromTo(startdate, enddate, 'day')).to
-                .equal('https://eliq.url/?accesstoken=xxxxx&startdate=2012-11-03T00:00:00.000Z&enddate=2012-11-04T00:00:00.000Z&intervaltype=day');
+                .equal('https://eliq.url/?accesstoken=xxxxx&startdate=2012-11-03T17:00:00.000Z&enddate=2012-11-04T17:00:00.000Z&intervaltype=day');
         });
     });
 });
