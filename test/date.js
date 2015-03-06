@@ -28,7 +28,7 @@ describe('date', function () {
     describe('#hoursFromNow', function () {
         function roundTime (date) {
             var dateStr = '' + date.getTime();
-            return parseInt(dateStr.substr(0, dateStr.length - 3) + '000');
+            return parseInt(dateStr.substr(0, dateStr.length - 4) + '0000');
         }
 
         var h = 60 * 60 * 1000,
