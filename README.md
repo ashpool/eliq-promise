@@ -19,8 +19,6 @@ var config = {
 eliq = require('eliq-promise')(config);
 ```
 
-```
-
 ### From
 ```
 eliq.getFrom(<hours ago>, '6min' | 'hour' | 'day').then(console.log).catch(console.log);
