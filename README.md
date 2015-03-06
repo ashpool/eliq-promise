@@ -29,6 +29,11 @@ eliq.getFrom(<hours ago>, '6min' | 'hour' | 'day').then(console.log).catch(conso
 eliq.getFromTo (<startdate>, <enddate>, '6min' | 'hour' | 'day').then(console.log).catch(console.log);
 ```
 
+## Notes
+
+* It seems like the 6min resolution is limited to 1 hour.
+* ELIQ's uptime is not 99.9998%.
+
 [npm-url]: https://npmjs.org/package/eliq-promise
 [downloads-image]: http://img.shields.io/npm/dm/eliq-promise.svg
 [npm-image]: http://img.shields.io/npm/v/eliq-promise.svg
