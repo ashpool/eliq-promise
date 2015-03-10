@@ -18,15 +18,47 @@ var config = {
 },
 eliq = require('eliq-promise')(config);
 ```
+### Now
+```
+eliq.getNow().then(console.log).catch(console.log);
+=>
+{ createddate: '2015-03-10T05:38:20', power: 1285 }
+```
 
 ### From
 ```
 eliq.getFrom(<hours ago>, '6min' | 'hour' | 'day').then(console.log).catch(console.log);
+=>
+{ startdate: '2015-03-10T00:00:00+00:00',
+  enddate: '2015-03-10T01:00:00+00:00',
+  intervaltype: '6min',
+  data:
+   [ { avgpower: 1170,
+       energy: 117,
+       temp_out: null,
+       time_start: '2015-03-10T00:00:00',
+       time_end: '2015-03-10T00:06:00' },
+   ...
+   ]
+}
 ```
 
 ### From => To
 ```
 eliq.getFromTo (<startdate>, <enddate>, '6min' | 'hour' | 'day').then(console.log).catch(console.log);
+=>
+{ startdate: '2015-03-02T20:00:00+00:00',
+  enddate: '2015-03-02T23:00:00+00:00',
+  intervaltype: '6min',
+  data:
+   [ { avgpower: 2790,
+       energy: 279,
+       temp_out: null,
+       time_start: '2015-03-02T20:00:00',
+       time_end: '2015-03-02T20:06:00' },
+    ...
+   ]
+}
 ```
 
 ## Notes
