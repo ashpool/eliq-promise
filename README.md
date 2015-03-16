@@ -7,26 +7,28 @@ A node.js module to interface with the [ELIQ API](http://eliq.se) [promise style
 ELIQ [access token](https://my.eliq.se/user/settings/api)
 
 ## Install
-``npm install eliq-promise``
+```Bash
+npm install eliq-promise
+```
 
 ## API
 
 ### Setup
-```
+```Javascript
 var config = {
   eliqAccesstoken: '...',
 },
 eliq = require('eliq-promise')(config);
 ```
 ### Now
-```
+```Javascript
 eliq.getNow().then(console.log).catch(console.log);
 =>
 { createddate: '2015-03-10T05:38:20', power: 1285 }
 ```
 
 ### From
-```
+```Javascript
 eliq.getFrom(<hours ago>, '6min' | 'hour' | 'day').then(console.log).catch(console.log);
 =>
 { startdate: '2015-03-10T00:00:00+00:00',
@@ -44,7 +46,7 @@ eliq.getFrom(<hours ago>, '6min' | 'hour' | 'day').then(console.log).catch(conso
 ```
 
 ### From => To
-```
+```Javascript
 eliq.getFromTo (<startdate>, <enddate>, '6min' | 'hour' | 'day').then(console.log).catch(console.log);
 =>
 { startdate: '2015-03-02T20:00:00+00:00',
