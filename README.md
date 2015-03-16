@@ -17,6 +17,7 @@ npm install eliq-promise
 ```Javascript
 var config = {
   eliqAccesstoken: '...',
+  recover: true|false
 },
 eliq = require('eliq-promise')(config);
 ```
@@ -61,6 +62,15 @@ eliq.getFromTo (<startdate>, <enddate>, '6min' | 'hour' | 'day').then(console.lo
     ...
    ]
 }
+```
+
+## Recover
+```Javascript
+var eliq = require('eliq-promise')({recover: true});
+```
+
+```Javascript
+eliq.recover(console);
 ```
 
 ## Notes
