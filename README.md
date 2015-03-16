@@ -65,6 +65,10 @@ eliq.getFromTo (<startdate>, <enddate>, '6min' | 'hour' | 'day').then(console.lo
 ```
 
 ## Recover
+Just in case ELIQ API is unresponsive for some reason, this options enable recovery
+of failed requests to the ELIQ API. Each failed request is persisted on file and being
+re-executed when calling ``eliq.revover(...)``.
+
 ```Javascript
 var eliq = require('eliq-promise')({recover: true});
 ```
