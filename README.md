@@ -67,7 +67,7 @@ eliq.getFromTo (<startdate>, <enddate>, '6min' | 'hour' | 'day').then(console.lo
 ## Recover
 In case ELIQ API is unresponsive (ie. response code 503), this options enable recovery
 of failed requests to the ELIQ API. Each failed request is persisted on file and being
-re-executed when calling ``eliq.revover(...)``.
+re-executed when calling ``eliq.recover(...)``.
 
 ```Javascript
 var eliq = require('eliq-promise')({recover: true});
