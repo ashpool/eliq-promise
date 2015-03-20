@@ -22,11 +22,13 @@
   "homepage": "https://github.com/ashpool/eliq-promise",
   "devDependencies": {
     "chai": "^2.1.0",
+    "chai-as-promised": "^4.3.0",
     "gulp": "^3.8.11",
     "gulp-coverage": "^0.3.34",
     "gulp-jshint": "^1.9.2",
     "gulp-mocha": "^2.0.0",
-    "mocha": "^2.1.0"
+    "mocha": "^2.1.0",
+    "nock": "^1.2.0"
   },
   "dependencies": {
     "moment-timezone": "^0.3.0",
