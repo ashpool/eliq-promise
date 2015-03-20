@@ -22,6 +22,7 @@
   "homepage": "https://github.com/ashpool/eliq-promise",
   "devDependencies": {
     "chai": "^2.1.0",
+    "chai-as-promised": "^4.3.0",
     "gulp": "^3.8.11",
     "gulp-coverage": "^0.3.34",
     "gulp-jshint": "^1.9.2",

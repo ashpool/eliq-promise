@@ -17,7 +17,8 @@ npm install eliq-promise
 ```Javascript
 var config = {
   eliqAccesstoken: '...',
-  recover: true|false
+  recover: true|false (false),
+  recoveryFile: '/tmp/recovery.eliq'
 },
 eliq = require('eliq-promise')(config);
 ```
