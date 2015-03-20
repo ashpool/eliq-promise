@@ -8,21 +8,17 @@ chai.use(chaiAsPromised);
 
 describe('eliq', function () {
     describe('#getNow', function () {
+
+        afterEach(function () {
+            nock.cleanAll();
+        });
+
         it('fetches createddate and power', function (done) {
-            var scope = nock('https://my.eliq.se')
+            nock('https://my.eliq.se')
                 .get('/api/datanow?accesstoken=fake')
                 .reply(200, {createddate: '2015-03-10T05:38:20', power: 1285});
             var eliq = require('../lib/eliq')({eliqAccesstoken: 'fake'});
-            eliq.getNow().then(function (result) {
-                expect(result.createddate).to.equal('2015-03-10T05:38:20');
-                expect(result.power).to.equal(1285);
-                scope.done();
-                done();
-            }).catch(function (reason) {
-                done(reason);
-            }).finally(function () {
-                nock.cleanAll();
-            });
+            expect(eliq.getNow()).to.eventually.deep.equal({createddate: '2015-03-10T05:38:20', power: 1285}).notify(done);
         });
         describe('#getFromTo', function () {
             it('fetches avgpower and energy', function (done) {
