@@ -17,6 +17,8 @@ npm install eliq-promise
 ```Javascript
 var config = {
   eliqAccesstoken: '...',
+  recover: true|false (false),
+  recoveryFile: '/tmp/recovery.eliq'
 },
 eliq = require('eliq-promise')(config);
 ```
@@ -61,6 +63,19 @@ eliq.getFromTo (<startdate>, <enddate>, '6min' | 'hour' | 'day').then(console.lo
     ...
    ]
 }
+```
+
+## Recover (Experimental)
+In case ELIQ API is unresponsive (ie. response code 503), this options enable recovery
+of failed requests to the ELIQ API. Each failed request is persisted on file and being
+re-executed when calling ``eliq.recover(...)``.
+
+```Javascript
+var eliq = require('eliq-promise')({recover: true});
+```
+
+```Javascript
+eliq.recover(console.log);
 ```
 
 ## Notes
