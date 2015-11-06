@@ -35,7 +35,7 @@ describe('eliq', function () {
                     }]
                 };
                 nock('https://my.eliq.se')
-                    .get('/api/data?accesstoken=fake&startdate=2015-03-02T20:00:00.000Z&enddate=2015-03-02T23:00:00.000Z&intervaltype=6min')
+                    .get('/api/data?accesstoken=fake&startdate=2015-03-02T20:00:00.000&enddate=2015-03-02T23:00:00.000&intervaltype=6min')
                     .reply(200, result);
                 var eliq = require('../lib/eliq')({eliqAccesstoken: 'fake'});
                 expect(eliq.getFromTo(new Date('2015-03-02T20:00:00+00:00'), new Date('2015-03-02T23:00:00+00:00'), '6min'))
