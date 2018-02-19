@@ -1,6 +1,6 @@
 {
   "name": "eliq-promise",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "A node.js module to interface with the ELIQ API promise style",
   "main": "lib/eliq.js",
   "scripts": {
