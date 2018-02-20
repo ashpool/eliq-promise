@@ -18,7 +18,7 @@ describe('eliqurl', function () {
     it('has a default url', function () {
       var config = {eliqAccesstoken: 'xxxxx'},
         eliqurl = require('./../lib/eliqurl')(config);
-      expect(eliqurl.now()).to.equal('https://my.eliq.se/api/datanow?accesstoken=xxxxx');
+      expect(eliqurl.now()).to.equal('https://my.eliq.io/api/datanow?accesstoken=xxxxx');
     });
   });
 
