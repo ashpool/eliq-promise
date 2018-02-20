@@ -3,8 +3,7 @@ var gulp = require('gulp'),
   mocha = require('gulp-mocha'),
   cover = require('gulp-coverage');
 
-gulp.task('default', ['lint', 'test'], function () {
-});
+gulp.task('default', ['lint', 'test']);
 
 gulp.task('lint', function () {
   return gulp.src(['./lib/*.js', './bin/*.js', './test/*.js'])
