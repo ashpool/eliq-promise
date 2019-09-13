@@ -1,5 +1,7 @@
 # eliq-promise
-[![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url] [![Build Status][travis-image]][travis-url]
+[![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url] [![Actions Status](https://github.com/ashpool/eliq-promise/workflows/Node.js%20Package/badge.svg)](https://github.com/ashpool/eliq-promise/actions)
+[![Actions Status](https://github.com/ashpool/eliq-promise/workflows/Node%20CI/badge.svg)](https://github.com/ashpool/eliq-promise/actions)
+
 
 A node.js module to interface with the [ELIQ API](https://eliq.io) [promise style](https://promisesaplus.com).
 
@@ -71,5 +73,3 @@ eliq.getFromTo (<startdate>, <enddate>, '6min' | 'hour' | 'day').then(console.lo
 [npm-url]: https://npmjs.org/package/eliq-promise
 [downloads-image]: http://img.shields.io/npm/dm/eliq-promise.svg
 [npm-image]: http://img.shields.io/npm/v/eliq-promise.svg
-[travis-url]: https://travis-ci.org/ashpool/eliq-promise
-[travis-image]: http://img.shields.io/travis/ashpool/eliq-promise.svg
