@@ -1,11 +1,11 @@
-var request = require('request'),
-  date = require('./date');
+import request from 'request';
+import * as date from './date';
 
-module.exports = function (config) {
+module.exports = function (config: any) {
   'use strict';
   var eliqUrl = require('./eliqurl')(config);
 
-  function fetchData(url) {
+  function fetchData(url: any) {
     return new Promise(function (resolve, reject) {
       var options = {
         url: url,
@@ -27,12 +27,12 @@ module.exports = function (config) {
     return fetchData(eliqUrl.now());
   }
 
-  function getFrom(age, resolution) {
+  function getFrom(age: any, resolution: any) {
     var startdate = date.hoursAgoFromNow(age);
     return fetchData(eliqUrl.from(startdate, resolution));
   }
 
-  function getFromTo(startdate, enddate, resolution) {
+  function getFromTo(startdate: any, enddate: any, resolution: any) {
     return fetchData(eliqUrl.fromTo(startdate, enddate, resolution));
   }
 

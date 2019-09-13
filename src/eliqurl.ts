@@ -1,6 +1,6 @@
-var date = require('./date');
+import * as date from './date';
 
-module.exports = function (config) {
+module.exports = function (config: any) {
   if (!config || !config.eliqAccesstoken) {
     throw new Error('config.eliqAccesstoken must be configured');
   }
@@ -17,11 +17,11 @@ module.exports = function (config) {
     return baseUrl() + '/datanow' + accesstoken();
   }
 
-  function from(startdate, resolution) {
+  function from(startdate: any, resolution: any) {
     return baseUrl() + '/data' + accesstoken() + '&startdate=' + date.toISOHour(startdate).slice(0, -1) + '&intervaltype=' + resolution;
   }
 
-  function fromTo(startdate, enddate, resolution) {
+  function fromTo(startdate: any, enddate: any, resolution: any) {
     return baseUrl() + '/data' + accesstoken() + '&startdate=' + date.toISOHour(startdate).slice(0, -1) + '&enddate=' + date.toISOHour(enddate).slice(0, -1) + '&intervaltype=' + resolution;
   }
 
