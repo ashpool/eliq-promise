@@ -17,7 +17,7 @@ describe('eliq', function () {
       nock('https://my.eliq.io')
         .get('/api/datanow?accesstoken=fake')
         .reply(200, {createddate: '2015-03-10T05:38:20', power: 1285});
-      var eliq = require('../lib/eliq')({eliqAccesstoken: 'fake'});
+      var eliq = require('../src/eliq')({eliqAccesstoken: 'fake'});
       expect(eliq.getNow()).to.eventually.deep.equal({createddate: '2015-03-10T05:38:20', power: 1285}).notify(done);
     });
     describe('#getFromTo', function () {
@@ -37,7 +37,7 @@ describe('eliq', function () {
         nock('https://my.eliq.io')
           .get('/api/data?accesstoken=fake&startdate=2015-03-02T20:00:00.000&enddate=2015-03-02T23:00:00.000&intervaltype=6min')
           .reply(200, result);
-        var eliq = require('../lib/eliq')({eliqAccesstoken: 'fake'});
+        var eliq = require('../src/eliq')({eliqAccesstoken: 'fake'});
         expect(eliq.getFromTo(new Date('2015-03-02T20:00:00+00:00'), new Date('2015-03-02T23:00:00+00:00'), '6min'))
           .to.eventually.deep.equal(result).notify(done);
       });
@@ -45,7 +45,7 @@ describe('eliq', function () {
         nock('https://my.eliq.io')
           .get('/api/data?accesstoken=fake&startdate=2015-03-02T20:00:00.000Z&enddate=2015-03-02T23:00:00.000Z&intervaltype=6min')
           .reply(503, {});
-        var eliq = require('../lib/eliq')({eliqAccesstoken: 'fake'});
+        var eliq = require('../src/eliq')({eliqAccesstoken: 'fake'});
         expect(eliq.getFromTo(new Date('2015-03-02T20:00:00+00:00'), new Date('2015-03-02T23:00:00+00:00'), '6min')).to.eventually.be.rejected.and.notify(done);
       });
     });

@@ -1,8 +1,8 @@
-/*jshint undef:false */
-var chai = require('chai'),
-  expect = chai.expect,
-  date = require('../lib/date'),
-  moment = require('moment-timezone');
+import chai from 'chai';
+import * as date from '../src/date';
+import moment from 'moment-timezone';
+
+const expect = chai.expect;
 
 describe('date', function () {
   describe('#toISODay', function () {
@@ -26,7 +26,7 @@ describe('date', function () {
     });
   });
   describe('#hoursFromNow', function () {
-    function roundTime(date) {
+    function roundTime(date: any) {
       var dateStr = '' + date.getTime();
       return parseInt(dateStr.substr(0, dateStr.length - 4) + '0000');
     }
