@@ -3,7 +3,7 @@
 [![Actions Status](https://github.com/ashpool/eliq-promise/workflows/Node%20CI/badge.svg)](https://github.com/ashpool/eliq-promise/actions)
 
 
-A node.js module to interface with the [ELIQ API](https://eliq.io) [promise style](https://promisesaplus.com).
+A node.js module to interface with the [ELIQ API](https://eliq.io)
 
 ## Prerequisites
 ELIQ [access token](https://my.eliq.io/user/settings/api)
@@ -17,7 +17,7 @@ npm install eliq-promise
 
 ### Setup
 ```Javascript
-var config = {
+const config = {
   eliqAccesstoken: '...',
 },
 eliq = require('eliq-promise')(config);
@@ -64,11 +64,6 @@ eliq.getFromTo (<startdate>, <enddate>, '6min' | 'hour' | 'day').then(console.lo
    ]
 }
 ```
-
-## Notes
-
-* It seems like the ``6min`` resolution is limited to 1 hour when just supplying ``startdate``.
-* ELIQ's uptime is not 99.9998%.
 
 [npm-url]: https://npmjs.org/package/eliq-promise
 [downloads-image]: http://img.shields.io/npm/dm/eliq-promise.svg
