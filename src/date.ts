@@ -1,14 +1,16 @@
-import moment from "moment-timezone";
-
+const MS_PER_MINUTE = 60000;
+const MS_PER_HOUR = 60 * MS_PER_MINUTE;
 /**
  * Returns ISO8601 formatted date string rounded down to day
  * e.g 2012-11-04T00:00:00.000Z
  * @param date date or timestamp
  * @returns {string|*}
  */
-const toISODay = (date: any) => {
-  return moment(date).hours(0).minutes(0).second(0).millisecond(0).toISOString();
-};
+export const toISODay = (date: Date) => {
+  const isoDay = new Date(date);
+  isoDay.setHours(0,0, 0,0);
+  return isoDay.toISOString();
+}
 
 /**
  * Returns ISO8601 formatted date string rounded down to hour
@@ -16,17 +18,11 @@ const toISODay = (date: any) => {
  * @param date date or timestamp
  * @returns {string|*}
  */
-const toISOHour = (date: any) => {
-  return moment(date).minute(0).second(0).millisecond(0).toISOString();
+export const toISOHour = (date: Date) => {
+  const isoHour = new Date(date);
+  isoHour.setMinutes(0, 0, 0);
+  return isoHour.toISOString();
 };
 
-const hoursAgoFromNow = (age: any) => {
-  return moment().subtract(age, 'hours').toDate();
-};
-
-export {
-  toISODay,
-  toISOHour,
-  hoursAgoFromNow,
-};
+export const hoursAgoFromNow = (age: number) => new Date(new Date().getTime() - age * MS_PER_HOUR);
 

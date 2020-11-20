@@ -1,13 +1,18 @@
 import request from 'request';
 import * as date from './date';
+import {EliqUrl} from './eliqurl';
 
-module.exports = function (config: any) {
-  'use strict';
-  var eliqUrl = require('./eliqurl')(config);
 
-  function fetchData(url: any) {
+export class EliqClient {
+  eliqUrl: any;
+
+ constructor (config: any) {
+    this.eliqUrl = new EliqUrl(config);
+ }
+
+  public fetchData = async (url: string) => {
     return new Promise(function (resolve, reject) {
-      var options = {
+      const options = {
         url: url,
         json: true,
         timeout: 3000
@@ -23,22 +28,12 @@ module.exports = function (config: any) {
     });
   }
 
-  function getNow() {
-    return fetchData(eliqUrl.now());
+  public getNow = () => this.fetchData(this.eliqUrl.now());
+
+  public getFrom = async (age: any, resolution: any) => {
+    const startDate = date.hoursAgoFromNow(age);
+    return this.fetchData(this.eliqUrl.from(startDate, resolution));
   }
 
-  function getFrom(age: any, resolution: any) {
-    var startdate = date.hoursAgoFromNow(age);
-    return fetchData(eliqUrl.from(startdate, resolution));
-  }
-
-  function getFromTo(startdate: any, enddate: any, resolution: any) {
-    return fetchData(eliqUrl.fromTo(startdate, enddate, resolution));
-  }
-
-  return {
-    getNow: getNow,
-    getFrom: getFrom,
-    getFromTo: getFromTo
-  };
-};
+  public getFromTo = async (startDate: any, endDate: any, resolution: any) => this.fetchData(this.eliqUrl.fromTo(startDate, endDate, resolution));
+}
