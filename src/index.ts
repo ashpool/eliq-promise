@@ -1,3 +1,3 @@
-export { default  as date }from './date';
-export { default as eliq } from './eliq';
-export { default as eliqurl }  from './eliqurl';
+export * as date from './date';
+export  * as eliq  from './eliq';
+export * as eliqurl from './eliqurl';
