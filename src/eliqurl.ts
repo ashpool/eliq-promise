@@ -16,7 +16,7 @@ export class EliqUrl {
 
   public now = () => this.baseUrl() + '/datanow' + this.accesstoken();
 
-  public from = (startdate: Date, resolution: string) => this.baseUrl() + '/data' +this.accesstoken() + '&startdate=' + toISOHour(startdate).slice(0, -1) + '&intervaltype=' + resolution;
+  public from = (startDate: Date, resolution: string) => this.baseUrl() + '/data' +this.accesstoken() + '&startdate=' + toISOHour(startDate).slice(0, -1) + '&intervaltype=' + resolution;
 
-  public fromTo = (startdate: Date, enddate: Date, resolution: string) => this.baseUrl() + '/data' + this.accesstoken() + '&startdate=' + toISOHour(startdate).slice(0, -1) + '&enddate=' + toISOHour(enddate).slice(0, -1) + '&intervaltype=' + resolution;
+  public fromTo =  (startdate: Date, endDate: Date, resolution: string) => `${this.baseUrl()}/data${this.accesstoken()}&startdate=${toISOHour(startdate).slice(0, -1)}&enddate=${toISOHour(endDate).slice(0, -1)}&intervaltype=${resolution}`;
 }
