@@ -1,7 +1,6 @@
-import request from 'request';
-import * as date from './date';
+import got from 'got';
 import {EliqUrl} from './eliqurl';
-
+import {hoursAgoFromNow} from "./date";
 
 export class EliqClient {
   eliqUrl: any;
@@ -11,29 +10,19 @@ export class EliqClient {
  }
 
   public fetchData = async (url: string) => {
-    return new Promise(function (resolve, reject) {
-      const options = {
-        url: url,
-        json: true,
-        timeout: 3000
-      };
-      request(options, function (error, response, body) {
-        if (!error && response && (response.statusCode === 200 || response.statusCode === 201)) {
-          resolve(body);
-        } else {
-          error = error || new Error('Got status code ' + response.statusCode + ' for ' + options.url);
-          reject(error);
-        }
-      });
-    });
+    const response = await got(url);
+    if (response.statusCode > 201) {
+      throw new Error(`Request to eliq failed with ${response.statusCode}`);
+    }
+    return JSON.parse(response.body);
   }
 
   public getNow = () => this.fetchData(this.eliqUrl.now());
 
   public getFrom = async (age: any, resolution: any) => {
-    const startDate = date.hoursAgoFromNow(age);
+    const startDate = hoursAgoFromNow(age);
     return this.fetchData(this.eliqUrl.from(startDate, resolution));
   }
 
-  public getFromTo = async (startDate: any, endDate: any, resolution: any) => this.fetchData(this.eliqUrl.fromTo(startDate, endDate, resolution));
+  public getFromTo = (startDate: Date, endDate: Date, resolution: string) => this.fetchData(this.eliqUrl.fromTo(startDate, endDate, resolution));
 }

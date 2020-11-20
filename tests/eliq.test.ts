@@ -32,9 +32,16 @@ describe('eliq',  () => {
         nock('https://my.eliq.io')
           .get('/api/data?accesstoken=fake&startdate=2015-03-02T20:00:00.000&enddate=2015-03-02T23:00:00.000&intervaltype=6min')
           .reply(200, result);
-        const eliq = new EliqClient({eliqAccesstoken: 'fake'});
-        expect(await eliq.getFromTo(new Date('2015-03-02T20:00:00+00:00'), new Date('2015-03-02T23:00:00+00:00'), '6min'))
+        const client = new EliqClient({eliqAccesstoken: 'fake'});
+        expect(await client.getFromTo(new Date('2015-03-02T20:00:00+00:00'), new Date('2015-03-02T23:00:00+00:00'), '6min'))
           .toEqual(result);
+      });
+      it('throws an error when server is down', async () => {
+        nock('https://my.eliq.io')
+          .get('/*')
+          .reply(503, {});
+        const client = new EliqClient({eliqAccesstoken: 'fake'});
+        expect(() => client.getFromTo(new Date('2015-03-02T20:00:00+00:00 GMT'), new Date('2015-03-02T23:00:00+00:00 GMT'), '6min')).toThrow();
       });
     });
   });
