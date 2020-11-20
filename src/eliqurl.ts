@@ -1,33 +1,22 @@
-import * as date from './date';
+import {toISOHour} from "./date";
 
-module.exports = function (config: any) {
-  if (!config || !config.eliqAccesstoken) {
-    throw new Error('config.eliqAccesstoken must be configured');
+export class EliqUrl {
+  config: any;
+
+  constructor (config: { eliqAccesstoken: string }) {
+    if (!config || !config.eliqAccesstoken) {
+      throw new Error('config.eliqAccesstoken must be configured');
+    }
+    this.config = config;
   }
 
-  function baseUrl() {
-    return (config.eliqUrl || 'https://my.eliq.io/api/').replace(/\/?$/, '');
-  }
+  public baseUrl = () => (this.config.eliqUrl || 'https://my.eliq.io/api/').replace(/\/?$/, '');
 
-  function accesstoken() {
-    return '?accesstoken=' + config.eliqAccesstoken;
-  }
+  public accesstoken = () => '?accesstoken=' + this.config.eliqAccesstoken;
 
-  function now() {
-    return baseUrl() + '/datanow' + accesstoken();
-  }
+  public now = () => this.baseUrl() + '/datanow' + this.accesstoken();
 
-  function from(startdate: any, resolution: any) {
-    return baseUrl() + '/data' + accesstoken() + '&startdate=' + date.toISOHour(startdate).slice(0, -1) + '&intervaltype=' + resolution;
-  }
+  public from = (startdate: Date, resolution: string) => this.baseUrl() + '/data' +this.accesstoken() + '&startdate=' + toISOHour(startdate).slice(0, -1) + '&intervaltype=' + resolution;
 
-  function fromTo(startdate: any, enddate: any, resolution: any) {
-    return baseUrl() + '/data' + accesstoken() + '&startdate=' + date.toISOHour(startdate).slice(0, -1) + '&enddate=' + date.toISOHour(enddate).slice(0, -1) + '&intervaltype=' + resolution;
-  }
-
-  return {
-    now: now,
-    from: from,
-    fromTo: fromTo
-  };
-};
+  public fromTo = (startdate: Date, enddate: Date, resolution: string) => this.baseUrl() + '/data' + this.accesstoken() + '&startdate=' + toISOHour(startdate).slice(0, -1) + '&enddate=' + toISOHour(enddate).slice(0, -1) + '&intervaltype=' + resolution;
+}
