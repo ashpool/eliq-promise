@@ -18,10 +18,17 @@ npm install eliq-promise
 ### Setup
 ```Javascript
 const config = {
-  eliqAccesstoken: '...',
-},
-eliq = require('eliq-promise')(config);
+  eliqAccesstoken: process.env['eliqAccesstoken'],
+  url: process.env['url'],
+  format: process.env['format'],
+  logLevel: process.env['logLevel'],
+}
+const {EliqClient} = require('eliq-promise');
+const eliq = new EliqClient(config);
+
+eliq.getFrom(5, '6min').then(console.log).catch(console.log);
 ```
+
 ### Now
 ```Javascript
 eliq.getNow().then(console.log).catch(console.log);
