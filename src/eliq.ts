@@ -11,7 +11,7 @@ export class EliqClient {
 
   public fetchData = async (url: string) => {
     const response = await got(url);
-    if (response.statusCode > 201) {
+    if (response.statusCode >= 300) {
       throw new Error(`Request to eliq failed with ${response.statusCode}`);
     }
     return JSON.parse(response.body);
