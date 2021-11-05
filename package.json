@@ -20,6 +20,10 @@
     "type": "git",
     "url": "https://github.com/ashpool/eliq-promise.git"
   },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "@ashpool:registry": "https://npm.pkg.github.com"
+  },
   "keywords": [
     "eliq",
     "promises"
