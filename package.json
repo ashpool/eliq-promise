@@ -1,5 +1,5 @@
 {
-  "name": "@ashpool/eliq-promise",
+  "name": "eliq-promise",
   "version": "3.1.6",
   "description": "A Node.js module to interface with the ELIQ API",
   "scripts": {
