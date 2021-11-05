@@ -43,8 +43,8 @@
     "build"
   ],
   "dependencies": {
-    "got": "^11.8.0",
-    "lodash": "^4.17.20",
+    "got": "^11.8.2",
+    "lodash": "^4.17.21",
     "request": "^2.88.2"
   },
   "devDependencies": {
